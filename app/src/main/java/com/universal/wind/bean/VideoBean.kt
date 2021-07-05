@@ -27,7 +27,7 @@ class VideoBean:Serializable {
     //简介
     var videoDesc:String? = null
     //选集
-    var episodeList:ArrayList<VideoEpisodeBean>?= null
+    var episodeList:ArrayList<VideoEpisodeTypeBean>?= null
     //影片资源类别
     var videoDetailType:VideoDetailType? = null
     //视频播放页面的 url

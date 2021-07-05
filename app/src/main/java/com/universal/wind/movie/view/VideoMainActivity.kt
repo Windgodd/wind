@@ -66,6 +66,7 @@ class VideoMainActivity:BaseActivity<VideoMainPresenter>() {
         etSearch  = findViewById(R.id.et_video_search)
 
 
+        etSearch?.isFocusable = false
     }
 
     override fun initData() {

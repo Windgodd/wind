@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.universal.wind.base.BasePresenter
 import com.universal.wind.bean.VideoEpisodeBean
 import com.universal.wind.bean.VideoBean
+import com.universal.wind.bean.VideoEpisodeTypeBean
 import com.universal.wind.configs.VideoDetailType
 import com.universal.wind.movie.contract.VideoDetailContract
 import com.universal.wind.movie.view.VideoDetailActivity
@@ -36,14 +37,14 @@ class VideoDetailPresenter:BasePresenter<VideoDetailActivity>() {
         val url = videoBean.detailUrl
         if(TextUtils.isEmpty(url)){
             Toast.makeText(mView!!.getContext(),"无效的地址",Toast.LENGTH_SHORT).show()
-            callBack.getVideoDetailInfo(type,null)
+            mView?.getVideoDetailInfo(type,null)
             return
         }
         GlobalScope.launch(Dispatchers.IO){
             try {
                 val doc = Jsoup.connect(url).get()
                 if( doc == null){
-                    callBack.getVideoDetailInfo(type,null)
+                    mView?.getVideoDetailInfo(type,null)
                     return@launch
                 }
 
@@ -71,21 +72,29 @@ class VideoDetailPresenter:BasePresenter<VideoDetailActivity>() {
                     if(tmp == null || tmp.size <1){
                         continue
                     }
-                    val episodeBean = VideoEpisodeBean()
+                    val episodeTypeBean = VideoEpisodeTypeBean()
                     val title = episodeSection.getElementsByTag("h4")[0].ownText()
-                    val playInfoSection = episodeSection.getElementsByTag("a")
-                    val title2 = playInfoSection[0].attr("title")
-                    val href = "https://www.16co.com" + playInfoSection[0].attr("href")
-                    episodeBean.episodeName = title + "(${title2})"
-                    episodeBean.episodeHtml = href
-                    videoBean.episodeList!!.add(episodeBean)
+                    episodeTypeBean.typeName = title
+                    val episodeList:ArrayList<VideoEpisodeBean> = arrayListOf()
+                    val playInfoSections = episodeSection.getElementsByTag("a")
+                    for(playInfoSection in playInfoSections){
+                        val episodeBean = VideoEpisodeBean()
+                        val title2 = playInfoSection.attr("title")
+                        val href = "https://www.16co.com" + playInfoSection.attr("href")
+                        episodeBean.episodeName = title + "(${title2})"
+                        episodeBean.episodeHtml = href
+                        episodeList.add(episodeBean)
+                    }
+                    episodeTypeBean.episodeList= episodeList
+                    videoBean.episodeList!!.add(episodeTypeBean)
+
                 }
                 withContext(Dispatchers.Main){
-                    callBack.getVideoDetailInfo(type,videoBean)
+                    mView?.getVideoDetailInfo(type,videoBean)
                 }
 
             }catch (e:Exception){
-                callBack.getVideoDetailInfo(type,null)
+                mView?.getVideoDetailInfo(type,null)
             }
 
 

@@ -18,7 +18,7 @@ import com.universal.wind.movie.view.VideoPlayActivity
  */
 class EpisodeAdapter(context: Context):RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
 
-    private var episodeList:ArrayList<VideoEpisodeBean>? = null
+    private var episodeList:List<VideoEpisodeBean>? = null
     private var mContext:Context = context
     private var videoBean:VideoBean? = null
 
@@ -46,8 +46,8 @@ class EpisodeAdapter(context: Context):RecyclerView.Adapter<EpisodeAdapter.Episo
         return episodeList?.size ?:0
     }
 
-    fun setData(videoBean:VideoBean){
-        episodeList = videoBean.episodeList ?:return
+    fun setData(videoBean:VideoBean,position: Int){
+        episodeList = videoBean.episodeList?.get(position)?.episodeList ?:return
         this.videoBean = videoBean
         notifyDataSetChanged()
     }
