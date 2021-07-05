@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">wind</string>
+    <string name="str_movie_search_tip">输入你想要搜索的资源</string>
+    <string-array name="str_categories">
+        <item>影视</item>
+        <item>音乐</item>
+    </string-array>
+
+
+    <!--影视 -->
+    <string name="str_hot_movie">热门电影</string>
+    <string name="str_hot_tv">热门电视</string>
+    <string name="str_hot_anim">热门动漫</string>
+    <string name="str_more">更多</string>
+    <string name="str_hvi_iv_tip">电影图片</string>
+    <string name="str_hvi_video_star">主演：</string>
+    <string name="str_hvi_video_category">类型：</string>
+    <string name="str_hvi_video_director">导演：</string>
+    <string name="str_hvi_video_desc">简介：</string>
+    <string name="str_video_episode">选集</string>
+
+
+</resources>
