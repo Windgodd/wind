@@ -1,26 +1,19 @@
 package com.universal.wind.movie.view
 
+import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.universal.wind.R
 import com.universal.wind.base.BaseFragment
 import com.universal.wind.base.IBaseView
 import com.universal.wind.movie.presenter.MoviePresenter
 
-class MovieFragment: BaseFragment<MoviePresenter>(), IBaseView {
+class MovieFragment:BaseVideoFragment() {
 
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_movie
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
-    override fun initPresenter(): MoviePresenter {
-        return MoviePresenter()
-    }
 
-    override fun initView(view: View) {
-
-    }
-
-    override fun initData() {
-
-    }
 }

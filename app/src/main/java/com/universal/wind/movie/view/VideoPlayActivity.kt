@@ -19,6 +19,8 @@ import com.universal.wind.movie.presenter.VideoPlayPresenter
 
 /**
  * 视频播放页面
+ * @author wind
+ *
  */
 class VideoPlayActivity:BaseActivity<VideoPlayPresenter>() {
 
@@ -57,7 +59,16 @@ class VideoPlayActivity:BaseActivity<VideoPlayPresenter>() {
             Toast.makeText(this, "无效参数", Toast.LENGTH_SHORT).show()
             return
         }
+        initPlayer(videoBean)
         mPresenter?.getVideoPlayUrl(videoBean)
+
+    }
+
+    /**
+     * 初始化播放器
+     * @param  videoBean 影片数据
+     */
+    private fun initPlayer(videoBean:VideoBean){
         //增加封面
         val imageView = ImageView(this)
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -112,6 +123,9 @@ class VideoPlayActivity:BaseActivity<VideoPlayPresenter>() {
         }
     }
 
+    /**
+     * 获取当前播放器
+     */
     private fun getCurPlay(): GSYVideoPlayer? {
         return if (videoPlay?.fullWindowPlayer != null) {
             videoPlay?.fullWindowPlayer
@@ -129,18 +143,27 @@ class VideoPlayActivity:BaseActivity<VideoPlayPresenter>() {
         super.onBackPressed()
     }
 
+    /**
+     * 暂停
+     */
     override fun onPause() {
         getCurPlay()?.onVideoPause()
         super.onPause()
         isPause = true
     }
 
+    /**
+     * 页面恢复
+     */
     override fun onResume() {
         getCurPlay()?.onVideoResume()
         super.onResume()
         isPause = false
     }
 
+    /**
+     * 页面销毁
+     */
     override fun onDestroy() {
         super.onDestroy()
         if (isPlay) {
@@ -165,6 +188,9 @@ class VideoPlayActivity:BaseActivity<VideoPlayPresenter>() {
         videoPlay?.postDelayed({ videoPlay?.startPlayLogic() }, 1000)
     }
 
+    /**
+     * 屏幕变化
+     */
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         //如果旋转了就全屏

@@ -12,6 +12,9 @@ import com.universal.wind.R
 import com.universal.wind.bean.VideoBean
 import com.universal.wind.bean.VideoEpisodeTypeBean
 
+/**
+ * 资源分类列表
+ */
 class EpisodeTypeAdapter(context:Context):RecyclerView.Adapter<EpisodeTypeAdapter.EpisodeTypeHolder>() {
 
     private val mContext = context
@@ -30,6 +33,7 @@ class EpisodeTypeAdapter(context:Context):RecyclerView.Adapter<EpisodeTypeAdapte
 
     override fun onBindViewHolder(holder: EpisodeTypeHolder, position: Int) {
         holder.tvEpisodeType.text = episodeTypeList[position].typeName
+        //选集列表，每行显示三列
         val adapter = EpisodeAdapter(mContext)
         val manager = GridLayoutManager(mContext,3)
      //   val manager = LinearLayoutManager(mContext,RecyclerView.HORIZONTAL,false)
