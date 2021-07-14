@@ -1,8 +1,10 @@
 package com.universal.wind.movie.view
 
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.universal.wind.R
+import com.universal.wind.adapter.VideoTypeAdapter
 import com.universal.wind.base.BaseFragment
 import com.universal.wind.configs.BaseConfigs
 import com.universal.wind.movie.presenter.BaseVideoPresenter
@@ -51,24 +53,38 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
     }
 
     override fun initData() {
-        val url = BaseConfigs.videoBaseUrl + "/search.php?searchtype=5&order=(${videoOrder})&tid=(${videoTid})&area=(${videoArea})&year=(${videoYear})&jq="
+        val url = BaseConfigs.videoBaseUrl + "/search.php?${videoTid}&order=${videoOrder}&area=${videoArea}&year=${videoYear}&jq="
         mPresenter?.getVideoData(url)
     }
 
     fun showTypeList(typeList:ArrayList<String>,urlList:ArrayList<String>){
-        this.typeList.clear()
+     //   this.typeList.clear()
         this.urlList.clear()
-        this.typeList.addAll(typeList)
+     //   this.typeList.addAll(typeList)
         this.urlList.addAll(urlList)
+        showList(this.yearList,typeList,rlVideoType!!)
     }
 
     fun showYearList(yearList: ArrayList<String>){
-        this.yearList.clear()
-        this.yearList.addAll(yearList)
+//        this.yearList.clear()
+ //       this.yearList.addAll(yearList)
+        showList(this.typeList,yearList,rlVideoYear!!)
     }
 
     fun showAreaList(areaList: ArrayList<String>){
-        this.areaList.clear()
-        this.areaList.addAll(areaList)
+//        this.areaList.clear()
+//        this.areaList.addAll(areaList)
+        showList(this.areaList,areaList,rlVideoArea!!)
+    }
+
+    fun showList(list:ArrayList<String>, data:ArrayList<String>,rl:RecyclerView){
+        list.clear()
+        list.addAll(data)
+        val adapter = VideoTypeAdapter(context!!)
+        val manager = LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
+        rl.layoutManager = manager
+        rl.adapter = adapter
+        adapter.setData(list)
+
     }
 }

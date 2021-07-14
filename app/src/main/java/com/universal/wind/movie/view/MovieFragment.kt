@@ -11,7 +11,9 @@ import com.universal.wind.movie.presenter.MoviePresenter
 class MovieFragment:BaseVideoFragment() {
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        videoTid = "searchtype=5&tid=1"
         super.onCreate(savedInstanceState)
     }
 

@@ -23,7 +23,7 @@ class VideoTypeAdapter(var context: Context) :
 
 
     inner class VideoTypeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var content:TextView = itemView.findViewById(R.id.tv_fav_category_name)
+        var content:TextView = itemView.findViewById(R.id.tv_item_type)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoTypeViewHolder {
@@ -33,6 +33,7 @@ class VideoTypeAdapter(var context: Context) :
 
     override fun onBindViewHolder(holder: VideoTypeViewHolder, position: Int) {
         holder.content.text = typeList[position]
+        holder.content.setBackgroundResource(R.drawable.shape_video_type_bg)
         holder.itemView.setOnClickListener{
             itemClickListener?.itemClickListener(position,typeList[position])
         }
@@ -42,5 +43,9 @@ class VideoTypeAdapter(var context: Context) :
          return typeList.size
     }
 
+    fun setData(data:ArrayList<String>){
+        this.typeList = data
+        notifyDataSetChanged()
+    }
 
 }
