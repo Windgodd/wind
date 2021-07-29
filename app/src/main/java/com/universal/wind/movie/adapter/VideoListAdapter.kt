@@ -1,4 +1,4 @@
-package com.universal.wind.adapter
+package com.universal.wind.movie.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -17,7 +17,7 @@ import com.universal.wind.movie.view.VideoDetailActivity
 /**
  * 热门影片列表适配器
  */
-class HotVideoAdapter(context: Context):RecyclerView.Adapter<HotVideoAdapter.HotVideoHolder>() {
+class VideoListAdapter(context: Context):RecyclerView.Adapter<VideoListAdapter.HotVideoHolder>() {
 
     private var videoList = arrayListOf<VideoBean>()
     private val mContext = context

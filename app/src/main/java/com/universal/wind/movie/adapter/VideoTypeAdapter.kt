@@ -1,14 +1,13 @@
-package com.universal.wind.adapter
+package com.universal.wind.movie.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.universal.wind.R
-import com.universal.wind.adapter.FavCategoryAdapter.FavCategoryViewHolder
+import com.universal.wind.adapter.ItemClickListener
 
 /**
  * 主页类别适配器
@@ -17,7 +16,7 @@ class VideoTypeAdapter(var context: Context) :
     RecyclerView.Adapter<VideoTypeAdapter.VideoTypeViewHolder>() {
 
     var typeList = arrayListOf<String>()
-    var itemClickListener:ItemClickListener? = null
+    var itemClickListener: ItemClickListener? = null
 
 
 
@@ -33,7 +32,7 @@ class VideoTypeAdapter(var context: Context) :
 
     override fun onBindViewHolder(holder: VideoTypeViewHolder, position: Int) {
         holder.content.text = typeList[position]
-        holder.content.setBackgroundResource(R.drawable.shape_video_type_bg)
+     //   holder.content.setBackgroundResource(R.drawable.shape_video_type_bg)
         holder.itemView.setOnClickListener{
             itemClickListener?.itemClickListener(position,typeList[position])
         }
@@ -46,6 +45,10 @@ class VideoTypeAdapter(var context: Context) :
     fun setData(data:ArrayList<String>){
         this.typeList = data
         notifyDataSetChanged()
+    }
+
+    fun setOnItemClickListener(clickListener: ItemClickListener){
+        this.itemClickListener = clickListener
     }
 
 }

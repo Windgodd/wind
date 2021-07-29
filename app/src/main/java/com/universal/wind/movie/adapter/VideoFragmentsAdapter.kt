@@ -1,4 +1,4 @@
-package com.universal.wind.adapter
+package com.universal.wind.movie.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

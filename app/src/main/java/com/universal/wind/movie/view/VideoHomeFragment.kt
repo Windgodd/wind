@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.universal.wind.R
-import com.universal.wind.adapter.HotVideoAdapter
+import com.universal.wind.movie.adapter.HotVideoAdapter
 import com.universal.wind.base.BaseFragment
 import com.universal.wind.base.IBaseView
 import com.universal.wind.bean.VideoBean

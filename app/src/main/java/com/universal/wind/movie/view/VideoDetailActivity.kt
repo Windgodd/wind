@@ -2,13 +2,11 @@ package com.universal.wind.movie.view
 
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.universal.wind.R
-import com.universal.wind.adapter.EpisodeAdapter
-import com.universal.wind.adapter.EpisodeTypeAdapter
+import com.universal.wind.movie.adapter.EpisodeTypeAdapter
 import com.universal.wind.base.BaseActivity
 import com.universal.wind.bean.VideoBean
 import com.universal.wind.configs.ConstValue.Companion.VIDEO_BEAN_TAG

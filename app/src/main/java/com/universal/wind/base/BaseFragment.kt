@@ -26,8 +26,12 @@ abstract class BaseFragment<T: IBasePresenter?>:Fragment(),IBaseView {
     ): View? {
         val view = inflater.inflate(getLayoutId(),null)
         initView(view)
-        initData()
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initData()
     }
 
 

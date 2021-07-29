@@ -1,4 +1,4 @@
-package com.universal.wind.adapter
+package com.universal.wind.movie.adapter
 
 import android.content.Context
 import android.content.Intent

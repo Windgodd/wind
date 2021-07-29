@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.universal.wind.R
-import com.universal.wind.adapter.VideoFragmentsAdapter
+import com.universal.wind.movie.adapter.VideoFragmentsAdapter
 import com.universal.wind.base.BaseActivity
 import com.universal.wind.movie.presenter.VideoMainPresenter
 
@@ -77,8 +77,8 @@ class VideoMainActivity:BaseActivity<VideoMainPresenter>() {
 
         fragments.add(videoHomeFragment!!)
         fragments.add(movieFragment!!)
-        fragments.add(animFragment!!)
         fragments.add(tvFragment!!)
+        fragments.add(animFragment!!)
 
 
         for (i in titles.indices){

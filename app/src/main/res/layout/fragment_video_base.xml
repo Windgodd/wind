@@ -14,6 +14,7 @@
         android:layout_marginTop="@dimen/dimen_video_rl_mt"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:layout_marginStart="@dimen/dimen_video_rl_mt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -32,6 +33,7 @@
         android:layout_marginTop="@dimen/dimen_video_rl_mt"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:layout_marginStart="@dimen/dimen_video_rl_mt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -48,6 +50,7 @@
 
     <LinearLayout
         android:layout_marginTop="@dimen/dimen_video_rl_mt"
+        android:layout_marginStart="@dimen/dimen_video_rl_mt"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
