@@ -6,4 +6,5 @@
 
     <color name="green">#ff99cc00</color>
     <color name="black">#000000</color>
+    <color name="color_video_base_bg">#F9F9F9</color>
 </resources>

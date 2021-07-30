@@ -1,5 +1,6 @@
 package com.universal.wind.movie.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +16,10 @@ import com.universal.wind.adapter.ItemClickListener
 class VideoTypeAdapter(var context: Context) :
     RecyclerView.Adapter<VideoTypeAdapter.VideoTypeViewHolder>() {
 
+    //被选中项的下标
+    var selectedIndex = 0
     var typeList = arrayListOf<String>()
     var itemClickListener: ItemClickListener? = null
-
-
 
 
     inner class VideoTypeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -30,11 +31,24 @@ class VideoTypeAdapter(var context: Context) :
         return VideoTypeViewHolder(view)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: VideoTypeViewHolder, position: Int) {
         holder.content.text = typeList[position]
-     //   holder.content.setBackgroundResource(R.drawable.shape_video_type_bg)
+        if(position == selectedIndex){
+            holder.content.setBackgroundResource(R.drawable.shape_video_type_bg)
+            holder.content.setTextColor(context.resources.getColor(R.color.green))
+        }else{
+            holder.content.background = holder.itemView.background
+            holder.content.setTextColor(android.graphics.Color.DKGRAY)
+        }
+
         holder.itemView.setOnClickListener{
+            if(position == selectedIndex){
+                return@setOnClickListener
+            }
+            selectedIndex = position
             itemClickListener?.itemClickListener(position,typeList[position])
+            notifyDataSetChanged()
         }
     }
 

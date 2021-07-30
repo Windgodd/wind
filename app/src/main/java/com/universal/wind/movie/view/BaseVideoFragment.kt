@@ -118,6 +118,9 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
      * @param
      */
     fun showTypeList(typeList:ArrayList<String>,urlList:ArrayList<String>){
+        if(this.typeList.size > 0){
+            return
+        }
         this.typeList = typeList
         this.urlList  = urlList
         showList(typeList,rlVideoType!!,ListType.Category)
@@ -128,6 +131,9 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
      * @param yearList 类型数据
      */
     fun showYearList(yearList: ArrayList<String>){
+        if(this.yearList.size > 0){
+            return
+        }
         this.yearList = yearList
         showList(this.yearList,rlVideoYear!!,ListType.Year)
     }
@@ -137,6 +143,9 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
      * @param areaList 地区数据
      */
     fun showAreaList(areaList: ArrayList<String>){
+        if(this.areaList.size > 0){
+            return
+        }
         this.areaList = areaList
         showList(this.areaList,rlVideoArea!!,ListType.Area)
     }
@@ -156,14 +165,11 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
     }
 
     fun showList(list:ArrayList<String>,rl:RecyclerView,listType:ListType){
-
-
         val adapter = VideoTypeAdapter(context!!)
         val manager = LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
         rl.layoutManager = manager
         rl.adapter = adapter
         adapter.setData(list)
-
         adapter.setOnItemClickListener(object : ItemClickListener {
             override fun itemClickListener(position: Int, obj: Any?) {
                 val content = obj as String

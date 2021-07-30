@@ -5,5 +5,5 @@
     <dimen name="dimen_video_kind_margin_top">20dp</dimen>
     <dimen name="dimen_avm_kind_padding">5dp</dimen>
     <dimen name="dimen_item_hvi_name_text_size">10sp</dimen>
-    <dimen name="dimen_video_rl_mt">10dp</dimen>
+    <dimen name="dimen_video_rl_mt">8dp</dimen>
 </resources>
