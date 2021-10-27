@@ -2,7 +2,7 @@ package com.universal.wind.movie.presenter
 
 import com.universal.wind.base.BasePresenter
 import com.universal.wind.bean.VideoBean
-import com.universal.wind.movie.view.VideoPlayActivity
+import com.universal.wind.movie.ui.VideoPlayActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

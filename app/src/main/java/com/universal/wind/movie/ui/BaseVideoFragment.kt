@@ -1,4 +1,4 @@
-package com.universal.wind.movie.view
+package com.universal.wind.movie.ui
 
 import android.util.Log
 import android.view.View
@@ -11,6 +11,7 @@ import com.universal.wind.movie.adapter.VideoTypeAdapter
 import com.universal.wind.base.BaseFragment
 import com.universal.wind.bean.VideoBean
 import com.universal.wind.configs.BaseConfigs
+import com.universal.wind.customview.WindProgressDialog
 import com.universal.wind.movie.adapter.VideoListAdapter
 import com.universal.wind.movie.presenter.BaseVideoPresenter
 
@@ -19,6 +20,7 @@ import com.universal.wind.movie.presenter.BaseVideoPresenter
  */
 open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
 
+    protected val TAG:String = this.javaClass.name
     //按人气，评分
     var rlVideoSort: RecyclerView? = null
     //按类别
@@ -34,8 +36,11 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
      * 类型
      */
     protected var videoTid:String = ""
+    //年份
     private var videoYear:String = ""
+    //地区
     private var videoArea:String = ""
+    //排序
     private var videoOrder:String = ""
 
 
@@ -51,6 +56,7 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
     //影片数据
     private var videoList = arrayListOf<VideoBean>()
 
+    protected  var progressDialog:WindProgressDialog? = null
 
     /**
      * 关联布局
@@ -81,6 +87,7 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
      * 初始化数据
      */
     override fun initData() {
+
         if(sortList.size < 1){
             sortList.add("按时间")
             sortList.add("按人气")
@@ -96,9 +103,9 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
                 showAreaList(this.areaList)
                 showVideoList(videoList)
                 showList(sortList,rlVideoSort!!,ListType.Sort)
-                Log.i("tip----->","显示原有数据")
+                Log.i(TAG,"显示原有数据")
             }else{
-                Log.i("tip----->","请求数据")
+                Log.i(TAG,"请求数据")
                 getData()
             }
         }
@@ -109,6 +116,7 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
      * 根据 url 获取 数据
      */
     fun getData(){
+        showProgressDialog()
         val url = BaseConfigs.videoBaseUrl + "${videoTid}&order=${videoOrder}&area=${videoArea}&year=${videoYear}&jq="
         mPresenter?.getVideoData(url)
     }
@@ -165,6 +173,7 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
     }
 
     fun showList(list:ArrayList<String>,rl:RecyclerView,listType:ListType){
+        hideProgressDialog()
         val adapter = VideoTypeAdapter(context!!)
         val manager = LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
         rl.layoutManager = manager
@@ -198,5 +207,14 @@ open class BaseVideoFragment:BaseFragment<BaseVideoPresenter>() {
      */
      enum class ListType{
          Sort,Area,Category,Year
+    }
+
+    protected fun showProgressDialog(){
+        progressDialog = WindProgressDialog(activity!!)
+        progressDialog!!.showDialog("加载中..","加载超时")
+    }
+
+    protected fun hideProgressDialog(){
+        progressDialog?.dismiss()
     }
 }

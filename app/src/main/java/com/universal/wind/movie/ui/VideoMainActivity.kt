@@ -1,4 +1,4 @@
-package com.universal.wind.movie.view
+package com.universal.wind.movie.ui
 
 import android.annotation.SuppressLint
 import android.content.Context

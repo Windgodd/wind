@@ -4,7 +4,7 @@ import com.universal.wind.base.BaseFragmentPresenter
 import com.universal.wind.bean.VideoBean
 import com.universal.wind.configs.BaseConfigs
 import com.universal.wind.configs.VideoDetailType
-import com.universal.wind.movie.view.VideoHomeFragment
+import com.universal.wind.movie.ui.VideoHomeFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.universal.wind.movie.view
+package com.universal.wind.movie.ui
 
 import android.content.res.Configuration
 import android.text.TextUtils

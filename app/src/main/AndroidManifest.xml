@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".movie.view.VideoMainActivity"
+        <activity android:name=".movie.ui.VideoMainActivity"
             android:windowSoftInputMode="stateHidden|adjustUnspecified"/>
-        <activity android:name=".movie.view.VideoDetailActivity" />
-        <activity android:name=".movie.view.VideoPlayActivity"
+        <activity android:name=".movie.ui.VideoDetailActivity" />
+        <activity android:name=".movie.ui.VideoPlayActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="fullSensor"/>
 

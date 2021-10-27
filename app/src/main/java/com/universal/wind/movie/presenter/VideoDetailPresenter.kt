@@ -8,7 +8,7 @@ import com.universal.wind.bean.VideoBean
 import com.universal.wind.bean.VideoEpisodeTypeBean
 import com.universal.wind.configs.VideoDetailType
 import com.universal.wind.movie.contract.VideoDetailContract
-import com.universal.wind.movie.view.VideoDetailActivity
+import com.universal.wind.movie.ui.VideoDetailActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

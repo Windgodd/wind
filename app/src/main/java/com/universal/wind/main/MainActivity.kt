@@ -7,7 +7,7 @@ import com.universal.wind.R
 import com.universal.wind.adapter.FavCategoryAdapter
 import com.universal.wind.adapter.ItemClickListener
 import com.universal.wind.base.BaseActivity
-import com.universal.wind.movie.view.VideoMainActivity
+import com.universal.wind.movie.ui.VideoMainActivity
 
 class MainActivity : BaseActivity<MainPresenter>() {
 

@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.universal.wind.R
 import com.universal.wind.bean.VideoBean
 import com.universal.wind.configs.ConstValue
-import com.universal.wind.movie.view.VideoDetailActivity
+import com.universal.wind.movie.ui.VideoDetailActivity
 
 /**
  * 热门影片列表适配器

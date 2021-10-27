@@ -2,6 +2,7 @@ package com.universal.wind.movie.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +12,17 @@ import com.universal.wind.R
 import com.universal.wind.adapter.ItemClickListener
 
 /**
- * 主页类别适配器
+ * @author wind
+ * 类别数据适配器
  */
 class VideoTypeAdapter(var context: Context) :
     RecyclerView.Adapter<VideoTypeAdapter.VideoTypeViewHolder>() {
 
     //被选中项的下标
     var selectedIndex = 0
+    //数据
     var typeList = arrayListOf<String>()
+    //点击回调
     var itemClickListener: ItemClickListener? = null
 
 
@@ -56,11 +60,18 @@ class VideoTypeAdapter(var context: Context) :
          return typeList.size
     }
 
+    /**
+     * 设置数据
+     */
     fun setData(data:ArrayList<String>){
         this.typeList = data
+        Log.i("adapter","数据长度-->"+typeList.size)
         notifyDataSetChanged()
     }
 
+    /**
+     * 设置回调
+     */
     fun setOnItemClickListener(clickListener: ItemClickListener){
         this.itemClickListener = clickListener
     }

@@ -11,7 +11,7 @@ import com.universal.wind.R
 import com.universal.wind.bean.VideoEpisodeBean
 import com.universal.wind.bean.VideoBean
 import com.universal.wind.configs.ConstValue.Companion.VIDEO_BEAN_TAG
-import com.universal.wind.movie.view.VideoPlayActivity
+import com.universal.wind.movie.ui.VideoPlayActivity
 
 /**
  * 选集列表适配器

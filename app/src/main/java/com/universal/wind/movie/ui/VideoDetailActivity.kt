@@ -1,4 +1,4 @@
-package com.universal.wind.movie.view
+package com.universal.wind.movie.ui
 
 import android.widget.ImageView
 import android.widget.TextView
